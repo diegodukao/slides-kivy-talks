@@ -1,0 +1,48 @@
+Carousel:
+    direction: 'right'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint_y: 1
+
+            Button:
+                text: "back"
+            Button:
+                text: "next"
+            TextInput:
+            Label:
+                text: "User"
+
+        BoxLayout:
+            size_hint_y: 8
+
+            Button:
+                size_hint_x: 1
+                text: "library"
+            Button:
+                size_hint_x: 8
+                text: "playlist"
+            Button:
+                size_hint_x: 1
+                text: "feed"
+
+        BoxLayout:
+            size_hint_y: 1
+
+            Button:
+                size_hint_x: 1
+                text: "control"
+            Button:
+                size_hint_x: 9
+                text: "trackline"
+
+
+    Label:
+        text: "reagan1"
+    Label:
+        text: "reagan2"
+    VideoPlayer:
+        source: "2-1-diagram-beautification.mp4"
+        state: "stop"
