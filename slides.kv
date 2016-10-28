@@ -1,5 +1,29 @@
+<Label>:
+    color: (0, 0, 0, 1)
+
+<TextSlide@BoxLayout>:
+    orientation: 'vertical'
+    title: "Title"
+    content: "Bla bla content bla"
+
+    Label:
+        text: root.title
+        size_hint_y: 0.2
+        font_size: 70
+
+    Label:
+        text: root.content
+        size_hint_y: 0.8
+        font_size: 50
+
+
 Carousel:
     direction: 'right'
+
+    TextSlide:
+        title: "Python nos Celulares"
+        content: 'Kivy: "única opção e não é maduro o suficiente (meio ruim)"'
+
 
     BoxLayout:
         orientation: 'vertical'

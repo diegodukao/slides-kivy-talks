@@ -1,5 +1,7 @@
 from kivy.app import App
+from kivy.config import Config
 from kivy.core.window import Keyboard, Window
+from kivy.utils import get_color_from_hex
 
 
 class Slides(App):
@@ -14,4 +16,7 @@ class Slides(App):
         Window.bind(on_key_down=self.on_key_down)
 
 if __name__ == "__main__":
+    Window.clearcolor = get_color_from_hex('#FFFFFF')
+    Config.set('graphics', 'fullscreen', 'auto')
+    Config.write()
     Slides().run()
