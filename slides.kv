@@ -9,7 +9,19 @@
     size_hint_y: 0.2
     font_size: 70
 
+<ContentText@Label>:
+    font_size: 55
+
 <Body@BoxLayout>:
+    size_hint_y: 0.8
+    padding: [20, 100, 0, 100]
+    spacing: 20
+
+<BodyRightHalf@BoxLayout>:
+    orientation: 'vertical'
+    padding: [0, 0, 100, 0]
+
+<BodyGrid@GridLayout>:
     size_hint_y: 0.8
     padding: [20, 100, 0, 100]
     spacing: 20
@@ -26,10 +38,9 @@
     Title:
         text: root.title
 
-    Label:
+    ContentText:
         text: root.content
         size_hint_y: 0.8
-        font_size: 55
 
 
 <LabelSlide@Label>:
@@ -48,18 +59,25 @@
         source: root.source
         state: "stop"
 
+<ImageTitle@BoxLayout>:
+    orientation: "vertical"
+    title: ""
+    source: ""
+
+    Label:
+        text: root.title
+        font_size: 50
+        size_hint_y: .2
+    Image:
+        source: root.source
+        size_hint_y: .8
+        allow_stretch: True
+
 
 Carousel:
     direction: 'right'
 
-    Slide:
-        Title:
-            text: "Hello World"
-        Body:
-            BodyImage:
-                source: "imgs/helloworld.png"
-            BodyImage:
-                source: "imgs/blank.png"
+
 
     LabelSlide:
         text:
@@ -121,45 +139,150 @@ Carousel:
             BodyImage:
                 source: "imgs/blank.png"
 
-    BoxLayout:
-        orientation: 'vertical'
-
-        BoxLayout:
-            size_hint_y: 1
-
-            Button:
-                text: "back"
-            Button:
-                text: "next"
-            TextInput:
-            Label:
-                text: "User"
-
-        BoxLayout:
-            size_hint_y: 8
-
-            Button:
-                size_hint_x: 1
-                text: "library"
-            Button:
-                size_hint_x: 8
-                text: "playlist"
-            Button:
-                size_hint_x: 1
-                text: "feed"
-
-        BoxLayout:
-            size_hint_y: 1
-
-            Button:
-                size_hint_x: 1
-                text: "control"
-            Button:
-                size_hint_x: 9
-                text: "trackline"
+    Slide:
+        Title:
+            text: "Widgets"
+        Body:
+            ContentText:
+                text:
+                    '''
+                    - Label
+                    - Button
+                    - ToggleButton
+                    - TextInput
+                    - ActionBar
+                    - VideoPlayer
+                    '''
+            BodyRightHalf:
+                Label:
+                    text: "Label"
+                Button:
+                    text: "Button"
+                ToggleButton:
+                    text: "Toggle Button"
+                TextInput:
+                ActionBar:
+                    ActionView:
+                        ActionPrevious:
+                            title: 'Slides PythonRio'
+                            with_previous: False
+                VideoPlayer:
+                    source: "videos/particlepanda.mp4"
+                    state: "stop"
 
 
-    Label:
-        text: "reagan1"
-    Label:
-        text: "reagan2"
+    #Slide:
+    #    Title:
+    #        text: "Layouts"
+    #    BodyGrid:
+    #        cols: 3
+    #        lines: 2
+
+    #        AsyncImage:
+    #            source: "imgs/boxlayout.gif"
+    #        AsyncImage:
+    #            source: "imgs/gridlayout.gif"
+    #        AsyncImage:
+    #            source: "imgs/stacklayout.gif"
+    #        AsyncImage:
+    #            source: "imgs/anchorlayout.gif"
+    #        AsyncImage:
+    #            source: "imgs/floatlayout.gif"
+
+
+    TextSlide:
+        title: "Duas formas de montar a interface"
+        content:
+            '''
+            - Python
+            - Kv Lang
+            '''
+
+    Slide:
+        Title:
+            text: "Montando a interface (Python)"
+        Body:
+            BodyImage:
+                source: "imgs/layout_python.png"
+            BodyRightHalf:
+                TextInput:
+                Button:
+                    text: "blab"
+
+    Slide:
+        Title:
+            text: "Montando a interface (Kv Lang <3)"
+        Body:
+            ImageTitle:
+                title: "myapp.kv"
+                source: "imgs/kv1.png"
+            ImageTitle:
+                title: "myapp.py"
+                source: "imgs/python_main.png"
+
+    TextSlide:
+        title: "Por que usar a Kv Lang?"
+        content: 
+            '''
+            As interfaces podem ser complexas e, se você não separar a
+            lógica do layout, seu código vai ficar *muito* confuso.
+            '''
+
+    Slide:
+        Title:
+            text: "Por que usar a Kv Lang?"
+        Body:
+            orientation: "vertical"
+            spacing: 1
+            ActionBar:
+                ActionView:
+                    ActionPrevious:
+                        title: 'Music Player'
+                        with_previous: False
+
+            BoxLayout:
+                size_hint_y: .1
+
+                Button:
+                    size_hint_x: .05
+                    text: "back"
+                Button:
+                    size_hint_x: .05
+                    text: "next"
+                TextInput:
+                    size_hint_x: .6
+                Label:
+                    size_hint_x: .3
+                    text: "José da Couves"
+
+            BoxLayout:
+                size_hint_y: .8
+
+                Button:
+                    size_hint_x: .15
+                    text: "library"
+                Button:
+                    size_hint_x: .7
+                    text: "playlist"
+                Button:
+                    size_hint_x: .15
+                    text: "feed"
+
+            BoxLayout:
+                size_hint_y: .1
+
+                Button:
+                    size_hint_x: .1
+                    text: "control"
+                Button:
+                    size_hint_x: .9
+                    text: "trackline"
+
+    TextSlide:
+        title: "Para ajudar nas interfaces: Kivy Inspector"
+        content: 
+            '''
+            python main.py -m inspector
+            <ctrl> + e
+            (Pulo do Gato!)
+            '''
