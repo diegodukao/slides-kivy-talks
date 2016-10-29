@@ -1,29 +1,125 @@
 <Label>:
     color: (0, 0, 0, 1)
 
-<TextSlide@BoxLayout>:
+<Slide@BoxLayout>:
     orientation: 'vertical'
-    title: "Title"
-    content: "Bla bla content bla"
 
-    Label:
+
+<Title@Label>:
+    size_hint_y: 0.2
+    font_size: 70
+
+<Body@BoxLayout>:
+    size_hint_y: 0.8
+    padding: [20, 100, 0, 100]
+    spacing: 20
+
+
+<BodyImage@Image>:
+    allow_stretch: True
+
+
+<TextSlide@Slide>:
+    title: ""
+    content: ""
+
+    Title:
         text: root.title
-        size_hint_y: 0.2
-        font_size: 70
 
     Label:
         text: root.content
         size_hint_y: 0.8
-        font_size: 50
+        font_size: 55
+
+
+<LabelSlide@Label>:
+    font_size: 70
+
+
+<VideoSlide@Slide>:
+    title: ""
+    source: ""
+    padding: [100, 0]
+
+    Title:
+        text: root.title
+
+    VideoPlayer:
+        source: root.source
+        state: "stop"
 
 
 Carousel:
     direction: 'right'
 
+    Slide:
+        Title:
+            text: "Hello World"
+        Body:
+            BodyImage:
+                source: "imgs/helloworld.png"
+            BodyImage:
+                source: "imgs/blank.png"
+
+    LabelSlide:
+        text:
+            "Python é a melhor linguagem pra tudo, menos pra celular"
+
     TextSlide:
         title: "Python nos Celulares"
-        content: 'Kivy: "única opção e não é maduro o suficiente (meio ruim)"'
+        content:
+            '''
+            Kivy: "praticamente a única opção e não é maduro o suficiente (meio ruim)"
 
+            Mas por que é meio ruim?
+            '''
+
+    LabelSlide:
+        text: "Kivy não é *só* para celulares"
+
+    TextSlide:
+        title: "O que é Kivy?"
+        content:
+            '''
+            Biblioteca para fazer interfaces visuais
+            com foco em multitouch
+            '''
+
+    LabelSlide:
+        text: "Onde Kivy é usado?"
+
+    VideoSlide:
+        title: "Process Craft"
+        source: "videos/processcraft.mp4"
+
+    VideoSlide:
+        title: "Cardápio de bebidas"
+        source: "videos/beermenu.mp4"
+
+    VideoSlide:
+        title: "Icarus Touch"
+        source: "videos/icarustouch.mkv"
+
+    VideoSlide:
+        title: "No Booth"
+        source: "videos/nobooth.mp4"
+
+    VideoSlide:
+        title: "Particle Panda"
+        source: "videos/particlepanda.mp4"
+
+    VideoSlide:
+        title: "Plane White"
+        source: "videos/planewhite.mp4"
+
+    Slide:
+        Title:
+            text: "Hello World"
+        Body:
+            BodyImage:
+                source: "imgs/helloworld.png"
+            BodyImage:
+                source: "imgs/blank.png"
 
     BoxLayout:
         orientation: 'vertical'
@@ -67,6 +163,3 @@ Carousel:
         text: "reagan1"
     Label:
         text: "reagan2"
-    VideoPlayer:
-        source: "2-1-diagram-beautification.mp4"
-        state: "stop"
