@@ -9,10 +9,10 @@
 
 <Title@Label>:
     size_hint_y: 0.2
-    font_size: 70
+    font_size: '60sp'
 
 <ContentText@Label>:
-    font_size: 55
+    font_size: '45sp'
 
 <Body@BoxLayout>:
     size_hint_y: 0.8
@@ -46,7 +46,7 @@
 
 
 <LabelSlide@Label>:
-    font_size: 70
+    font_size: '60sp'
 
 
 <VideoSlide@Slide>:
@@ -68,7 +68,7 @@
 
     Label:
         text: root.title
-        font_size: 50
+        font_size: 40
         size_hint_y: .2
     Image:
         source: root.source
@@ -94,7 +94,7 @@
 
         Label:
             text: root.title
-            font_size: 80
+            font_size: '80pt'
             size_hint: None, None
 
     AnchorLayout:
@@ -129,14 +129,18 @@ Carousel:
 
     LabelSlide:
         text:
-            '"Python é a melhor linguagem pra tudo, menos pra celular"'
+            '''
+            "Python é a melhor linguagem pra tudo,
+            menos pra celular"
+            '''
 
     TextSlide:
         title: "Python nos Celulares"
         content:
             '''
-            Kivy: "praticamente a única opção e não é maduro o suficiente (meio ruim)"
-
+            Kivy: "praticamente a única opção e não é maduro
+            o suficiente (meio ruim)"
+            \n
             Mas por que é meio ruim?
             '''
 
@@ -195,47 +199,48 @@ Carousel:
                 text:
                     '''
                     - Label
-                    - Button
                     - ToggleButton
                     - TextInput
                     - ActionBar
                     - VideoPlayer
                     '''
             BodyRightHalf:
+                VideoPlayer:
+                    size_hint_y: .5
+                    source: "videos/particlepanda.mp4"
+                    state: "stop"
                 Label:
                     text: "Label"
-                Button:
-                    text: "Button"
+                    size_hint_y: .05
                 ToggleButton:
                     text: "Toggle Button"
+                    size_hint_y: .1
                 TextInput:
+                    size_hint_y: .1
                 ActionBar:
                     ActionView:
                         ActionPrevious:
                             title: 'Slides PythonRio'
                             with_previous: False
-                VideoPlayer:
-                    source: "videos/particlepanda.mp4"
-                    state: "stop"
 
 
-    #Slide:
-    #    Title:
-    #        text: "Layouts"
-    #    BodyGrid:
-    #        cols: 3
-    #        lines: 2
+    Slide:
+        Title:
+            text: "Layouts"
+        BodyGrid:
+            cols: 3
+            lines: 2
 
-    #        AsyncImage:
-    #            source: "imgs/boxlayout.gif"
-    #        AsyncImage:
-    #            source: "imgs/gridlayout.gif"
-    #        AsyncImage:
-    #            source: "imgs/stacklayout.gif"
-    #        AsyncImage:
-    #            source: "imgs/anchorlayout.gif"
-    #        AsyncImage:
-    #            source: "imgs/floatlayout.gif"
+            AsyncImage:
+                source: "imgs/boxlayout.gif"
+            AsyncImage:
+                source: "imgs/gridlayout.gif"
+            AsyncImage:
+                source: "imgs/stacklayout.gif"
+            AsyncImage:
+                source: "imgs/anchorlayout.gif"
+            AsyncImage:
+                source: "imgs/floatlayout.gif"
 
 
     TextSlide:
@@ -400,8 +405,8 @@ Carousel:
             '''
             "Mimimimi é mais lento que o nativo"
             \n
-            - Uma alternativa não multiplataforma *sempre* vai
-            ser mais lento que a nativa.
+            - Uma alternativa multiplataforma *sempre* vai
+            ser mais lenta que a nativa.
             - Ionic e afins são ainda mais pesados!
             '''
 
@@ -443,7 +448,11 @@ Carousel:
             '''
 
     LabelSlide:
-        text: "choraoipsum"
+        text: 
+            '''
+            - choraoipsum
+            - Codenames
+            '''
 
     CoverSlide:
         title: "Obrigado! =)"

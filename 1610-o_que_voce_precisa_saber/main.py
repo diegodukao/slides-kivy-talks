@@ -17,6 +17,5 @@ class Slides(App):
 
 if __name__ == "__main__":
     Window.clearcolor = get_color_from_hex('#FFFFFF')
-    Config.set('graphics', 'fullscreen', 'auto')
     Config.write()
     Slides().run()
