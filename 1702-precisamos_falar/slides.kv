@@ -77,7 +77,7 @@
 
 
 <CoverSlide@FloatLayout>:
-    source: "imgs/cover.png"
+    source: ""
 
     AnchorLayout:
         anchor_x: 'center'
@@ -94,6 +94,49 @@
 
         Image:
             source: root.source
+
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        padding: [200, 0, 0, 0]
+
+        Label:
+            text: 'github.com/diegodukao'
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        padding: [0, 0, 100, 0]
+
+        Label:
+            text: "@diegodukao"
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+
+<EndSlide@FloatLayout>:
+    title: ""
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+
+        Label:
+            text:"XVII Encontro da PythonRio"
+            font_size: 30
+            size_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+
+        Label:
+            font_size: 60
+            text: root.title
 
     AnchorLayout:
         anchor_x: 'left'
@@ -319,12 +362,12 @@ Carousel:
         title: "Exemplos no GitHub"
         content:
             '''
-                diegodukao/lamusga
-                diegodukao/saigon-client
-                diegodukao/slides-pyrj
-                gouzouni/Composite-Index-Modeler
-                natorsc/safadometro-kivy
-                kn2322/One-Cock-at-The-Top
+            diegodukao/lamusga
+            diegodukao/saigon-client
+            diegodukao/slides-pyrj
+            gouzouni/Composite-Index-Modeler
+            natorsc/safadometro-kivy
+            kn2322/One-Cock-at-The-Top
             '''
 
     TextSlide:
@@ -391,12 +434,5 @@ Carousel:
             E tenham paciência.
             '''
 
-    LabelSlide:
-        text:
-            '''
-            - choraoipsum
-            - Codenames
-            '''
-
-    CoverSlide:
+    EndSlide:
         title: "Obrigado! =)"
