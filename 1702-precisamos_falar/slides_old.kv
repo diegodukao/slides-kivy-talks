@@ -1,4 +1,4 @@
-#: import PythonLexer pygments.lexers.PythonLexer
+#: import NavigationDrawer kivy.garden.navigationdrawer.NavigationDrawer
 
 <Label>:
     color: (0, 0, 0, 1)
@@ -77,14 +77,14 @@
 
 
 <CoverSlide@FloatLayout>:
-    source: "imgs/cover.png"
+    title: ""
 
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'top'
 
         Label:
-            text:"XVII Encontro da PythonRio"
+            text:"XIV Encontro da PythonRio"
             font_size: 30
             size_hint: None, None
 
@@ -92,8 +92,10 @@
         anchor_x: 'center'
         anchor_y: 'center'
 
-        Image:
-            source: root.source
+        Label:
+            text: root.title
+            font_size: '80pt'
+            size_hint: None, None
 
     AnchorLayout:
         anchor_x: 'left'
@@ -101,7 +103,7 @@
         padding: [200, 0, 0, 0]
 
         Label:
-            text: 'github.com/diegodukao'
+            text: 'Diego Moreira Guimarães'
             font_size: 40
             size_hint: None, None
             pos_hint: None, None
@@ -123,7 +125,24 @@ Carousel:
     direction: 'right'
 
     CoverSlide:
-        source: "imgs/cover.png"
+        title: "Kivy: o que você precisa saber"
+
+    LabelSlide:
+        text:
+            '''
+            "Python é a melhor linguagem pra tudo,
+            menos pra celular"
+            '''
+
+    TextSlide:
+        title: "Python nos Celulares"
+        content:
+            '''
+            Kivy: "praticamente a única opção e não é maduro
+            o suficiente (meio ruim)"
+            \n
+            Mas por que é meio ruim?
+            '''
 
     LabelSlide:
         text: "Kivy não é *só* para celulares"
@@ -132,9 +151,36 @@ Carousel:
         title: "O que é Kivy?"
         content:
             '''
-            Biblioteca gráfica multiplataforma para fazer interface
-            visual para o seu aplicativo Python. (beijos, pygtk)
+            Biblioteca para fazer interfaces visuais
+            com foco em multitouch
             '''
+
+    LabelSlide:
+        text: "Onde Kivy é usado?"
+
+    VideoSlide:
+        title: "Process Craft"
+        source: "videos/processcraft.mp4"
+
+    VideoSlide:
+        title: "Cardápio de bebidas"
+        source: "videos/beermenu.mp4"
+
+    VideoSlide:
+        title: "Icarus Touch"
+        source: "videos/icarustouch.mkv"
+
+    VideoSlide:
+        title: "No Booth"
+        source: "videos/nobooth.mp4"
+
+    VideoSlide:
+        title: "Particle Panda"
+        source: "videos/particlepanda.mp4"
+
+    VideoSlide:
+        title: "Plane White"
+        source: "videos/planewhite.mp4"
 
     Slide:
         Title:
@@ -152,34 +198,92 @@ Carousel:
             ContentText:
                 text:
                     '''
-                    - ActionBar
                     - Label
                     - ToggleButton
-                    - CodeInput
-                    - FileBrowser
+                    - TextInput
+                    - ActionBar
+                    - VideoPlayer
                     '''
             BodyRightHalf:
-                ActionBar:
-                    ActionView:
-                        ActionPrevious:
-                            title: 'Slides PythonRio'
-                            with_previous: False
+                VideoPlayer:
+                    size_hint_y: .5
+                    source: "videos/particlepanda.mp4"
+                    state: "stop"
                 Label:
                     text: "Label"
                     size_hint_y: .05
                 ToggleButton:
                     text: "Toggle Button"
                     size_hint_y: .1
-                CodeInput:
-                    lexer: PythonLexer()
-                    text: "def olar(): print('olar mundo!')"
-                FileChooserListView:
-                    id: filechooser
-                    rootpath: '/home/diego/Projects/'
+                TextInput:
+                    size_hint_y: .1
+                ActionBar:
+                    ActionView:
+                        ActionPrevious:
+                            title: 'Slides PythonRio'
+                            with_previous: False
+
 
     Slide:
         Title:
-            text: "Criando a interface"
+            text: "Layouts"
+        BodyGrid:
+            cols: 3
+            lines: 2
+
+            AsyncImage:
+                source: "imgs/boxlayout.gif"
+            AsyncImage:
+                source: "imgs/gridlayout.gif"
+            AsyncImage:
+                source: "imgs/stacklayout.gif"
+            AsyncImage:
+                source: "imgs/anchorlayout.gif"
+            AsyncImage:
+                source: "imgs/floatlayout.gif"
+
+
+    TextSlide:
+        title: "Duas formas de montar a interface"
+        content:
+            '''
+            - Python
+            - Kv Lang
+            '''
+
+    Slide:
+        Title:
+            text: "Montando a interface (Python)"
+        Body:
+            BodyImage:
+                source: "imgs/layout_python.png"
+            BodyRightHalf:
+                TextInput:
+                Button:
+                    text: "blab"
+
+    Slide:
+        Title:
+            text: "Montando a interface (Kv Lang <3)"
+        Body:
+            ImageTitle:
+                title: "myapp.kv"
+                source: "imgs/kv1.png"
+            ImageTitle:
+                title: "myapp.py"
+                source: "imgs/python_main.png"
+
+    TextSlide:
+        title: "Por que usar a Kv Lang?"
+        content: 
+            '''
+            As interfaces podem ser complexas e, se você não separar a
+            lógica do layout, seu código vai ficar *muito* confuso.
+            '''
+
+    Slide:
+        Title:
+            text: "Por que usar a Kv Lang?"
         Body:
             orientation: "vertical"
             spacing: 1
@@ -227,50 +331,9 @@ Carousel:
                     size_hint_x: .9
                     text: "trackline"
 
-    LabelSlide:
-        text: "Demo"
-
-    TextSlide:
-        title: "Duas formas de montar a interface"
-        content:
-            '''
-            - Python
-            - Kv Lang
-            '''
-
-    Slide:
-        Title:
-            text: "Montando a interface (Python)"
-        Body:
-            BodyImage:
-                source: "imgs/layout_python.png"
-            BodyRightHalf:
-                TextInput:
-                Button:
-                    text: "blab"
-
-    Slide:
-        Title:
-            text: "Montando a interface (Kv Lang <3)"
-        Body:
-            ImageTitle:
-                title: "myapp.kv"
-                source: "imgs/kv1.png"
-            ImageTitle:
-                title: "myapp.py"
-                source: "imgs/python_main.png"
-
-    TextSlide:
-        title: "Por que usar a Kv Lang?"
-        content:
-            '''
-            As interfaces podem ser complexas e, se você não separar a
-            lógica do layout, seu código vai ficar *muito* confuso.
-            '''
-
     TextSlide:
         title: "Para ajudar nas interfaces: Kivy Inspector"
-        content:
+        content: 
             '''
             python main.py -m inspector
             <ctrl> + e
@@ -281,18 +344,24 @@ Carousel:
         title: "Introdução a Kv Lang (Python Sudeste 2016)"
         content: "https://speakerdeck.com/diegodukao/kivy-introducao-a-kv-lang"
 
-    TextSlide:
-        title: "Deixando a interface com uma cara conhecida"
-        content:
-            '''
-            KivyMD
-            - Google Material Design para o Kivy
-            - gitlab.com/kivymd/KivyMD
-            '''
+    LabelSlide:
+        text: '"Tá, mas e os celulares? Tem gente usando mesmo?"'
+
+    Image:
+        source: "imgs/gplay-easybudget.png"
+
+    Image:
+        source: "imgs/gplay-planespotter.png"
+
+    Image:
+        source: "imgs/gplay-python2interpreter.png"
+
+    Image:
+        source: "imgs/gplay-kognitivo.png"
 
     TextSlide:
         title: "Acessando recursos do dispositivo: Plyer!"
-        content:
+        content: 
             '''
             from plyer import Camera
             Camera.take_picture(filename, callback)
@@ -303,7 +372,7 @@ Carousel:
 
     TextSlide:
         title: "Kivy Garden <3"
-        content:
+        content: 
             '''
             Repositório de widgets feitos pela comunidade
             \n
@@ -313,9 +382,6 @@ Carousel:
 
     Image:
         source: "imgs/garden.png"
-
-    TextSlide:
-        title: "Exemplos no GitHub"
 
     TextSlide:
         title: "Empacotando para celular: Buildozer"
@@ -341,6 +407,7 @@ Carousel:
             \n
             - Uma alternativa multiplataforma *sempre* vai
             ser mais lenta que a nativa.
+            - Ionic e afins são ainda mais pesados!
             '''
 
     TextSlide:
@@ -360,7 +427,7 @@ Carousel:
             não mantém o ~look and feel~ da plataforma e perdemos
             recursos como acessibilidade"
             \n
-            Kivy Garden + KivyMD solucionam as duas coisas! \o/
+            Kivy Garden soluciona as duas coisas! \o/
             (Basta que alguém implemente os widgets e disponibilize)
             '''
 
@@ -368,21 +435,20 @@ Carousel:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "É muito complicado!"
+            "É muito difícil!"
             '''
 
     TextSlide:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "É muito complicado!"
+            "É muito difícil!"
             \n
             Por favor, testem vocês mesmos! =)
-            E tenham paciência.
             '''
 
     LabelSlide:
-        text:
+        text: 
             '''
             - choraoipsum
             - Codenames
