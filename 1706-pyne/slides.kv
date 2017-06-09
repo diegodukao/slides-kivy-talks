@@ -1,0 +1,528 @@
+#: import PythonLexer pygments.lexers.PythonLexer
+
+<Label>:
+    color: (0, 0, 0, 1)
+
+<Slide@BoxLayout>:
+    orientation: 'vertical'
+
+
+<Title@Label>:
+    size_hint_y: 0.2
+    font_size: '60sp'
+
+<ContentText@Label>:
+    font_size: '45sp'
+
+<Body@BoxLayout>:
+    size_hint_y: 0.8
+    padding: [20, 100, 0, 100]
+    spacing: 20
+
+<BodyRightHalf@BoxLayout>:
+    orientation: 'vertical'
+    padding: [0, 0, 100, 0]
+
+<BodyGrid@GridLayout>:
+    size_hint_y: 0.8
+    padding: [20, 100, 0, 100]
+    spacing: 20
+
+
+<BodyImage@Image>:
+    allow_stretch: True
+
+
+<TextSlide@Slide>:
+    title: ""
+    content: ""
+
+    Title:
+        text: root.title
+
+    ContentText:
+        text: root.content
+        size_hint_y: 0.8
+
+
+<LabelSlide@Label>:
+    font_size: '60sp'
+
+
+<VideoSlide@Slide>:
+    title: ""
+    source: ""
+    padding: [100, 0]
+
+    Title:
+        text: root.title
+
+    VideoPlayer:
+        source: root.source
+        state: "stop"
+
+<ImageTitle@BoxLayout>:
+    orientation: "vertical"
+    title: ""
+    source: ""
+
+    Label:
+        text: root.title
+        font_size: 40
+        size_hint_y: .2
+    Image:
+        source: root.source
+        size_hint_y: .8
+        allow_stretch: True
+
+
+# <CoverSlide@FloatLayout>:
+#     source: ""
+#
+#     AnchorLayout:
+#         anchor_x: 'center'
+#         anchor_y: 'top'
+#
+#         Label:
+#             text:"Python Nordeste 2017"
+#             font_size: 30
+#             size_hint: None, None
+#
+#     AnchorLayout:
+#         anchor_x: 'center'
+#         anchor_y: 'center'
+#
+#         Image:
+#             source: root.source
+#
+#     AnchorLayout:
+#         anchor_x: 'left'
+#         anchor_y: 'bottom'
+#         padding: [200, 0, 0, 0]
+#
+#         Label:
+#             text: 'github.com/diegodukao'
+#             font_size: 40
+#             size_hint: None, None
+#             pos_hint: None, None
+#
+#     AnchorLayout:
+#         anchor_x: 'right'
+#         anchor_y: 'bottom'
+#         padding: [0, 0, 100, 0]
+#
+#         Label:
+#             text: "@diegodukao"
+#             font_size: 40
+#             size_hint: None, None
+#             pos_hint: None, None
+
+
+<CoverSlide@FloatLayout>:
+    title: ""
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+
+        Label:
+            text:"Python Nordeste 2017"
+            font_size: sp(30)
+            size_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+
+        Label:
+            text: root.title
+            font_size: sp(65)
+            size_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        padding: [200, 0, 0, 0]
+
+        Label:
+            text: 'Diego Moreira Guimarães'
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        padding: [0, 0, 100, 0]
+
+        Label:
+            text: "@diegodukao"
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+
+<EndSlide@FloatLayout>:
+    title: ""
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+
+        Label:
+            text:"Python Nordeste 2017"
+            font_size: 30
+            size_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+
+        Label:
+            font_size: 60
+            text: root.title
+
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        padding: [200, 0, 0, 0]
+
+        Label:
+            text: 'github.com/diegodukao'
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        padding: [0, 0, 100, 0]
+
+        Label:
+            text: "@diegodukao"
+            font_size: 40
+            size_hint: None, None
+            pos_hint: None, None
+
+
+
+Carousel:
+    direction: 'right'
+
+    CoverSlide:
+        title: "Kivy: Python no celular\ne vários outros lugares"
+
+    TextSlide:
+        title: "O que é Kivy?"
+        content:
+            '''
+            Biblioteca multiplataforma em Python para
+            criação de interfaces gráficas para
+            aplicativos
+            '''
+
+    LabelSlide:
+        text: "Exemplos"
+
+    Image:
+        source: "imgs/app1-nienie.png"
+
+    Image:
+        source: "imgs/app2-gravityride.png"
+
+    Image:
+        source: "imgs/app3-barly.png"
+
+    Image:
+        source: "imgs/app4-kognitivo.png"
+
+    Image:
+        source: "imgs/app5-pydelhi.png"
+
+    LabelSlide:
+        text: "Kivy não é *só* para celulares"
+
+    Image:
+        source: "imgs/app6-copilot.png"
+
+    Image:
+        source: "imgs/app6-copilot2.png"
+
+    Image:
+        source: "imgs/app6-copilot2.1.png"
+
+    Image:
+        source: "imgs/app6-copilot3.png"
+
+    Image:
+        source: "imgs/app6-copilot4.png"
+
+    Image:
+        source: "imgs/app6-copilot5.png"
+
+    Image:
+        source: "imgs/app7-trifusion.png"
+
+    Image:
+        source: "imgs/app7-trifusion2.png"
+
+    Image:
+        source: "imgs/app7-trifusion3.png"
+
+    Slide:
+        Title:
+            text: "Hello World"
+        Body:
+            BodyImage:
+                source: "imgs/helloworld.png"
+            BodyImage:
+                source: "imgs/blank.png"
+
+    Slide:
+        Title:
+            text: "Widgets"
+        Body:
+            ContentText:
+                text:
+                    '''
+                    - ActionBar
+                    - Label
+                    - ToggleButton
+                    - CodeInput
+                    - FileBrowser
+                    '''
+            BodyRightHalf:
+                ActionBar:
+                    ActionView:
+                        ActionPrevious:
+                            title: 'Slides PythonRio'
+                            with_previous: False
+                Label:
+                    text: "Label"
+                    size_hint_y: .05
+                ToggleButton:
+                    text: "Toggle Button"
+                    size_hint_y: .1
+                CodeInput:
+                    lexer: PythonLexer()
+                    text: "def olar(): print('olar mundo!')"
+                FileChooserListView:
+                    id: filechooser
+                    rootpath: '/home/diego/Projects/'
+
+    Slide:
+        Title:
+            text: "Criando a interface"
+        Body:
+            orientation: "vertical"
+            spacing: 1
+            ActionBar:
+                ActionView:
+                    ActionPrevious:
+                        title: 'Music Player'
+                        with_previous: False
+
+            BoxLayout:
+                size_hint_y: .1
+
+                Button:
+                    size_hint_x: .05
+                    text: "back"
+                Button:
+                    size_hint_x: .05
+                    text: "next"
+                TextInput:
+                    size_hint_x: .6
+                Label:
+                    size_hint_x: .3
+                    text: "José da Couves"
+
+            BoxLayout:
+                size_hint_y: .8
+
+                Button:
+                    size_hint_x: .15
+                    text: "library"
+                Button:
+                    size_hint_x: .7
+                    text: "playlist"
+                Button:
+                    size_hint_x: .15
+                    text: "feed"
+
+            BoxLayout:
+                size_hint_y: .1
+
+                Button:
+                    size_hint_x: .1
+                    text: "control"
+                Button:
+                    size_hint_x: .9
+                    text: "trackline"
+
+    LabelSlide:
+        text: "Demo"
+
+    TextSlide:
+        title: "Duas formas de montar a interface"
+        content:
+            '''
+            - Python
+            - Kv Lang
+            '''
+
+    Slide:
+        Title:
+            text: "Montando a interface (Python)"
+        Body:
+            BodyImage:
+                source: "imgs/layout_python.png"
+            BodyRightHalf:
+                TextInput:
+                Button:
+                    text: "blab"
+
+    Slide:
+        Title:
+            text: "Montando a interface (Kv Lang <3)"
+        Body:
+            ImageTitle:
+                title: "myapp.kv"
+                source: "imgs/kv1.png"
+            ImageTitle:
+                title: "myapp.py"
+                source: "imgs/python_main.png"
+
+    TextSlide:
+        title: "Por que usar a Kv Lang?"
+        content:
+            '''
+            As interfaces podem ser complexas e, se você não separar a
+            lógica do layout, seu código vai ficar *muito* confuso.
+            '''
+
+    TextSlide:
+        title: "Para ajudar nas interfaces: Kivy Inspector"
+        content:
+            '''
+            python main.py -m inspector
+            <ctrl> + e
+            (Pulo do Gato!)
+            '''
+
+    TextSlide:
+        title: "Introdução a Kv Lang (Python Sudeste 2016)"
+        content: "https://speakerdeck.com/diegodukao/kivy-introducao-a-kv-lang"
+
+    TextSlide:
+        title: "Deixando a interface com uma cara conhecida"
+        content:
+            '''
+            KivyMD
+            - Google Material Design para o Kivy
+            - gitlab.com/kivymd/KivyMD
+            Demo
+            '''
+
+    TextSlide:
+        title: "Acessando recursos do dispositivo: Plyer!"
+        content:
+            '''
+            from plyer import Camera
+            Camera.take_picture(filename, callback)
+            '''
+
+    Image:
+        source: "imgs/plyer.png"
+
+    TextSlide:
+        title: "Kivy Garden <3"
+        content:
+            '''
+            Repositório de widgets feitos pela comunidade
+            \n
+            pip install kivy-garden
+            garden install androidtabs
+            '''
+
+    Image:
+        source: "imgs/garden.png"
+
+    TextSlide:
+        title: "Exemplos no GitHub"
+        content:
+            '''
+            diegodukao/lamusga
+            diegodukao/saigon-client
+            diegodukao/slides-pyrj
+            gouzouni/Composite-Index-Modeler
+            natorsc/safadometro-kivy
+            kn2322/One-Cock-at-The-Top
+            '''
+
+    TextSlide:
+        title: "Empacotando para celular: Buildozer"
+        content:
+            '''
+            buildozer init
+            <editar buildozer.spec>
+            buildozer android release
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "Mimimimi é mais lento que o nativo"
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "Mimimimi é mais lento que o nativo"
+            \n
+            - Uma alternativa multiplataforma *sempre* vai
+            ser mais lenta que a nativa.
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "Como não usamos a biblioteca gráfica padrão (Android, iOS, etc),
+            não mantém o ~look and feel~ da plataforma e perdemos
+            recursos como acessibilidade"
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "Como não usamos a biblioteca gráfica padrão (Android, iOS, etc),
+            não mantém o ~look and feel~ da plataforma e perdemos
+            recursos como acessibilidade"
+            \n
+            Kivy Garden + KivyMD solucionam as duas coisas! \o/
+            (Basta que alguém implemente os widgets e disponibilize)
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "É muito complicado!"
+            '''
+
+    TextSlide:
+        title: "Principais motivos para não usar Kivy:"
+        content:
+            '''
+            "É muito complicado!"
+            \n
+            Por favor, testem vocês mesmos! =)
+            E tenham paciência.
+            '''
+
+    EndSlide:
+        title: "Obrigado! =)"
