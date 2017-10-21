@@ -1,0 +1,4 @@
+Palestra Kivy:
+- Properties: Observer Pattern - https://en.wikipedia.org/wiki/Observer_pattern
+- Cookiecutter: Kivy e Buildozer
+- Testes?
