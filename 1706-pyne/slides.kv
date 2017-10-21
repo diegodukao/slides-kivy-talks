@@ -9,7 +9,7 @@
 
 <Title@Label>:
     size_hint_y: 0.2
-    font_size: '60sp'
+    font_size: '50sp'
 
 <ContentText@Label>:
     font_size: '45sp'
@@ -240,6 +240,9 @@ Carousel:
         source: "imgs/app5-pydelhi.png"
 
     LabelSlide:
+        text: "Demo"
+
+    LabelSlide:
         text: "Kivy não é *só* para celulares"
 
     Image:
@@ -253,6 +256,9 @@ Carousel:
 
     Image:
         source: "imgs/app6-copilot3.png"
+
+    LabelSlide:
+        text: "Repare nesses ícones"
 
     Image:
         source: "imgs/app6-copilot4.png"
@@ -268,6 +274,15 @@ Carousel:
 
     Image:
         source: "imgs/app7-trifusion3.png"
+
+    Image:
+        source: "imgs/app8-kvve.png"
+
+    LabelSlide:
+        text: "Demo"
+
+    LabelSlide:
+        text: "#comofaz"
 
     Slide:
         Title:
@@ -286,7 +301,6 @@ Carousel:
                 text:
                     '''
                     - ActionBar
-                    - Label
                     - ToggleButton
                     - CodeInput
                     - FileBrowser
@@ -297,18 +311,56 @@ Carousel:
                         ActionPrevious:
                             title: 'Slides PythonRio'
                             with_previous: False
-                Label:
-                    text: "Label"
-                    size_hint_y: .05
                 ToggleButton:
                     text: "Toggle Button"
-                    size_hint_y: .1
+                    size_hint_y: .3
                 CodeInput:
                     lexer: PythonLexer()
                     text: "def olar(): print('olar mundo!')"
                 FileChooserListView:
                     id: filechooser
                     rootpath: '/home/diego/Projects/'
+
+    TextSlide:
+        title: "Organizando os Widgets"
+        content:
+            '''
+            - Gerenciadores de layout
+            - BoxLayout, GridLayout, AnchorLayout, etc
+            - Para testar: Narcolapser/KivyKazam
+            - Demo
+            '''
+
+    TextSlide:
+        title: "Duas formas de montar a interface"
+        content:
+            '''
+            - Python
+            - Kv Lang
+            '''
+
+    Slide:
+        Title:
+            text: "Montando a interface (Python)"
+        Body:
+            BodyImage:
+                source: "imgs/layout_python.png"
+            BodyRightHalf:
+                TextInput:
+                Button:
+                    text: "blab"
+
+    Slide:
+        Title:
+            text: "Montando a interface (Kv Lang <3)"
+        Body:
+            ImageTitle:
+                title: "myapp.kv"
+                source: "imgs/kv1.png"
+            ImageTitle:
+                title: "myapp.py"
+                source: "imgs/python_main.png"
+
 
     Slide:
         Title:
@@ -360,45 +412,13 @@ Carousel:
                     size_hint_x: .9
                     text: "trackline"
 
-    LabelSlide:
-        text: "Demo"
-
-    TextSlide:
-        title: "Duas formas de montar a interface"
-        content:
-            '''
-            - Python
-            - Kv Lang
-            '''
-
-    Slide:
-        Title:
-            text: "Montando a interface (Python)"
-        Body:
-            BodyImage:
-                source: "imgs/layout_python.png"
-            BodyRightHalf:
-                TextInput:
-                Button:
-                    text: "blab"
-
-    Slide:
-        Title:
-            text: "Montando a interface (Kv Lang <3)"
-        Body:
-            ImageTitle:
-                title: "myapp.kv"
-                source: "imgs/kv1.png"
-            ImageTitle:
-                title: "myapp.py"
-                source: "imgs/python_main.png"
-
     TextSlide:
         title: "Por que usar a Kv Lang?"
         content:
             '''
-            As interfaces podem ser complexas e, se você não separar a
-            lógica do layout, seu código vai ficar *muito* confuso.
+            As interfaces podem ser complexas e, se você
+            não separar a lógica do layout, seu código vai
+            ficar *muito* confuso.
             '''
 
     TextSlide:
@@ -411,11 +431,26 @@ Carousel:
             '''
 
     TextSlide:
-        title: "Introdução a Kv Lang (Python Sudeste 2016)"
-        content: "https://speakerdeck.com/diegodukao/kivy-introducao-a-kv-lang"
+        title: "Introdução a Kv Lang (PySe 2016)"
+        content: "speakerdeck.com/diegodukao/kivy-introducao-a-kv-lang"
 
     TextSlide:
-        title: "Deixando a interface com uma cara conhecida"
+        title: "Problema no Kivy"
+        content:
+            '''
+            - Falta de convenções e ~guidelines~
+            - Organização freestyle de código
+            - Falta um 'startproject' ou coisa que o valha
+            '''
+
+    Image:
+        source: "imgs/cookiecutter1.png"
+
+    Image:
+        source: "imgs/cookiecutter2.png"
+
+    TextSlide:
+        title: "Interface com uma cara conhecida"
         content:
             '''
             KivyMD
@@ -425,7 +460,7 @@ Carousel:
             '''
 
     TextSlide:
-        title: "Acessando recursos do dispositivo: Plyer!"
+        title: "Acessando recursos do dispositivo"
         content:
             '''
             from plyer import Camera
@@ -442,23 +477,23 @@ Carousel:
             Repositório de widgets feitos pela comunidade
             \n
             pip install kivy-garden
-            garden install androidtabs
+            garden install mapview
             '''
 
     Image:
         source: "imgs/garden.png"
 
-    TextSlide:
-        title: "Exemplos no GitHub"
-        content:
-            '''
-            diegodukao/lamusga
-            diegodukao/saigon-client
-            diegodukao/slides-pyrj
-            gouzouni/Composite-Index-Modeler
-            natorsc/safadometro-kivy
-            kn2322/One-Cock-at-The-Top
-            '''
+    # TextSlide:
+    #     title: "Exemplos no GitHub"
+    #     content:
+    #         '''
+    #         diegodukao/lamusga
+    #         diegodukao/saigon-client
+    #         diegodukao/slides-pyrj
+    #         gouzouni/Composite-Index-Modeler
+    #         natorsc/safadometro-kivy
+    #         kn2322/One-Cock-at-The-Top
+    #         '''
 
     TextSlide:
         title: "Empacotando para celular: Buildozer"
@@ -469,18 +504,24 @@ Carousel:
             buildozer android release
             '''
 
+    Image:
+        source: "imgs/buildozer1.png"
+
+    Image:
+        source: "imgs/buildozer3.png"
+
     TextSlide:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "Mimimimi é mais lento que o nativo"
+            "É mais lento que o nativo"
             '''
 
     TextSlide:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "Mimimimi é mais lento que o nativo"
+            "É mais lento que o nativo"
             \n
             - Uma alternativa multiplataforma *sempre* vai
             ser mais lenta que a nativa.
@@ -490,21 +531,20 @@ Carousel:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "Como não usamos a biblioteca gráfica padrão (Android, iOS, etc),
-            não mantém o ~look and feel~ da plataforma e perdemos
-            recursos como acessibilidade"
+            "~Look and feel~ e perde de recursos da
+            plataforma nativa, como acessibilidade"
             '''
 
     TextSlide:
         title: "Principais motivos para não usar Kivy:"
         content:
             '''
-            "Como não usamos a biblioteca gráfica padrão (Android, iOS, etc),
-            não mantém o ~look and feel~ da plataforma e perdemos
-            recursos como acessibilidade"
+            "~Look and feel~ e perde de recursos da
+            plataforma nativa, como acessibilidade"
             \n
-            Kivy Garden + KivyMD solucionam as duas coisas! \o/
-            (Basta que alguém implemente os widgets e disponibilize)
+            Kivy Garden + KivyMD solucionam os dois! \o/
+            (Basta que alguém implemente os widgets e
+            disponibilize)
             '''
 
     TextSlide:
@@ -522,6 +562,14 @@ Carousel:
             \n
             Por favor, testem vocês mesmos! =)
             E tenham paciência.
+            '''
+
+    TextSlide:
+        title: "Onde conseguir ajuda?"
+        content:
+            '''
+            - #kivy na freenode (inglês)
+            - telegram.me/pykivy (pt-br)
             '''
 
     EndSlide:
